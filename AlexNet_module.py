@@ -37,7 +37,6 @@ def get_img_class(image_path, model):
     # Необходимо обернуть тензор изображения в ещё один, чтобы он соответсвовал принимаемому типу
     # tensor([1, 2, 3, 4]) -> tensor([[1, 2, 3, 4]])
     input_batch = img.unsqueeze(0)
-
     # Если cuda есть, выполняем вычисления на графическом процессоре
     if torch.cuda.is_available():
         model = model.cuda()
@@ -236,9 +235,9 @@ def train_model():
             torch.save(model.state_dict(),'model.pth')
 
 if __name__ == "__main__":
-    '''
+    
     model = load_model()
     print(get_img_class('dataset/test/1.jpg', model))
-    '''
-    train_model()
+    
+    #train_model()
     
